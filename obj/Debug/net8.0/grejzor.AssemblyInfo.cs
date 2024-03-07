@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("grejzor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+16e097bb8e492e7adced216ce9185493632373f2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ef282f3119c97cddf736a17eb39f9a93aba143a")]
 [assembly: System.Reflection.AssemblyProductAttribute("grejzor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("grejzor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

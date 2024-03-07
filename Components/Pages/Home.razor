@@ -6,9 +6,9 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>List of Grejzor!</h1>
 
-Welcome to your new app.
+
 
 <table>
     <tr>
@@ -20,7 +20,7 @@ Welcome to your new app.
         @foreach (var item in items)
         {
             <tr>
-                <td><a href="@item.Key.Id">@item.Key.Name</a></td>
+                <td><a href="items/@item.Key.Id">@item.Key.Name</a></td>
                 <td>@item.Value</td>
             </tr>
         }
@@ -28,10 +28,10 @@ Welcome to your new app.
 </table>
 
 @code{
-    Dictionary<Item, string> items = null;
+    Dictionary<Item, string>? items = null;
     
     protected override async Task OnInitializedAsync()
     {
-        items = BS.GetAllItems();
+        items =  await BS.GetAllItemsAsync();
     }
 }

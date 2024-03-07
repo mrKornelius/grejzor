@@ -12,13 +12,22 @@ public class BorrowService
         _dbContext = dbContext;
     }
 
-    public Dictionary<Item, string> GetAllItems()
+    public async Task<Dictionary<Item, string>> GetAllItemsAsync()
     {
         Dictionary<Item, string> dict = new();
-        foreach (var item in _dbContext.Items.ToList())
+        foreach (var item in await _dbContext.Items.ToListAsync())
         {
             dict[item] = "Available";
         }
         return dict;
     }
+
+    // public async Task<ItemSpecifics> GetItemByIdAsync(int id)
+    // {
+    //     Item item = _dbContext.Items.Find(id);
+    //     _dbContext.BorrowRequests.Select(x => x.ItemId == id)
+
+    //     return new() { Name = item.Name, Description = item.Description };
+    // }
 }
+
