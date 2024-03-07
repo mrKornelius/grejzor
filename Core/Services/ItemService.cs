@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using grejzor.Database;
-using grejzor.Core;
+// using grejzor.Core;
 
-namespace grejzor.Core.Services;
+namespace grejzor.Core;
 
 public class ItemService
 {
@@ -14,7 +14,7 @@ public class ItemService
 
     public Dictionary<Item, string> GetAllItems()
     {
-        // List<Item> items = _DbContext;
+        // var items = _dbContext.Items;
         return new();
     }
 }
