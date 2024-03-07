@@ -14,10 +14,10 @@ public class Database : DbContext
     {
         // base.OnModelCreating(modelBuilder);
         //FIXME: just for testing
-        modelBuilder.Entity<Item>().HasData(new Item() { Id = 1, Name = "Hammare", Desctiption = "En bra hammare..." });
-        modelBuilder.Entity<Item>().HasData(new Item() { Id = 2, Name = "Cykel", Desctiption = "Snabb som fan!" });
-        modelBuilder.Entity<Item>().HasData(new Item() { Id = 3, Name = "Laptop", Desctiption = "en mac..." });
-        modelBuilder.Entity<Item>().HasData(new Item() { Id = 4, Name = "Kaffebryggare", Desctiption = "12 koppar" });
-        modelBuilder.Entity<Item>().HasData(new Item() { Id = 5, Name = "Bok", Desctiption = "Banana Fish (jätte bra)" });
+        modelBuilder.Entity<Item>().HasData(new Item() { Id = 1, Name = "Hammare", Description = "En bra hammare..." });
+        modelBuilder.Entity<Item>().HasData(new Item() { Id = 2, Name = "Cykel", Description = "Snabb som fan!" });
+        modelBuilder.Entity<Item>().HasData(new Item() { Id = 3, Name = "Laptop", Description = "en mac..." });
+        modelBuilder.Entity<Item>().HasData(new Item() { Id = 4, Name = "Kaffebryggare", Description = "12 koppar" });
+        modelBuilder.Entity<Item>().HasData(new Item() { Id = 5, Name = "Bok", Description = "Banana Fish (jätte bra)" });
     }
 }

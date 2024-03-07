@@ -1,7 +1,29 @@
 ﻿@page "/"
+@using Microsoft.EntityFrameworkCore
+@using grejzor.Database
+@using grejzor.Core
+@inject Database _dbContext
 
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+@if (items != null)
+{   
+    <p>hej</p>
+    @foreach (var item in items)
+    {
+        <p>@item.Name</p>
+    }
+}
+
+@code{
+    List<Item> items = null;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        items = await _dbContext.Items.ToListAsync();
+    }
+}

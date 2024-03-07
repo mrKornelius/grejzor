@@ -1,4 +1,4 @@
-﻿namespace grejzor.core;
+﻿namespace grejzor.Core;
 
 public class BorrowRequest
 {
