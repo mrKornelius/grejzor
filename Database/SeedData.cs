@@ -8,9 +8,9 @@ public static class SeedData
 {
     public static void Initialize(IServiceProvider serviceProvider)
     {
-        using (var context = new Database(
+        using (var context = new GrejzorDB(
             serviceProvider.GetRequiredService<
-                DbContextOptions<Database>>()))
+                DbContextOptions<GrejzorDB>>()))
         {
             context.Items.AddRange(
                 new Item() { Id = 1, Name = "Hammare", Description = "En bra hammare..." },

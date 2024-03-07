@@ -1,7 +1,6 @@
 using grejzor.Components;
 using grejzor.Core;
 using grejzor.Database;
-using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddDbContext<Database>(opt => opt.UseInMemoryDatabase("db"));
-// builder.Services.AddScoped<ItemService>();
+builder.Services.AddDbContext<GrejzorDB>(opt => opt.UseInMemoryDatabase("db"));
+builder.Services.AddScoped<BorrowService>();
 
 var app = builder.Build();
 

@@ -2,7 +2,7 @@
 @using Microsoft.EntityFrameworkCore
 @using grejzor.Database
 @using grejzor.Core
-@inject Database _dbContext
+@inject BorrowService BS
 
 <PageTitle>Home</PageTitle>
 
@@ -10,19 +10,28 @@
 
 Welcome to your new app.
 
-@if (items != null)
-{   
-    @foreach (var item in items)
+<table>
+    <tr>
+        <th>Grej</th>
+        <th>Tillgänglighet</th>
+    </tr>
+    @if (items != null)
     {
-        <p>@item.Name</p>
+        @foreach (var item in items)
+        {
+            <tr>
+                <td><a href="@item.Key.Id">@item.Key.Name</a></td>
+                <td>@item.Value</td>
+            </tr>
+        }
     }
-}
+</table>
 
 @code{
-    List<Item> items = null;
+    Dictionary<Item, string> items = null;
     
     protected override async Task OnInitializedAsync()
     {
-        items = await _dbContext.Items.ToListAsync();
+        items = BS.GetAllItems();
     }
 }

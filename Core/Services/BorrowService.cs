@@ -1,20 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore;
-using grejzor.Database;
-// using grejzor.Core;
+﻿using grejzor.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace grejzor.Core;
 
 public class BorrowService
 {
-    private readonly DbContext _dbContext;
-    public BorrowService(DbContext dbContext)
+    private readonly GrejzorDB _dbContext;
+
+    public BorrowService(GrejzorDB dbContext)
     {
         _dbContext = dbContext;
     }
 
     public Dictionary<Item, string> GetAllItems()
     {
-        // var items = _dbContext.Items;
-        return new();
+        Dictionary<Item, string> dict = new();
+        foreach (var item in _dbContext.Items.ToList())
+        {
+            dict[item] = "Available";
+        }
+        return dict;
     }
 }
