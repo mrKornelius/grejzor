@@ -4,10 +4,10 @@ using grejzor.Database;
 
 namespace grejzor.Core;
 
-public class ItemService
+public class BorrowService
 {
     private readonly DbContext _dbContext;
-    public ItemService(DbContext dbContext)
+    public BorrowService(DbContext dbContext)
     {
         _dbContext = dbContext;
     }
