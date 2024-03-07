@@ -1,15 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using grejzor.Database;
-using grejzor.core;
+using grejzor.Core;
 
-namespace grejzor;
+namespace grejzor.Core.Services;
 
 public class ItemService
 {
-    private readonly DbContext _DbContext;
+    private readonly DbContext _dbContext;
     public ItemService(DbContext dbContext)
     {
-        _DbContext = dbContext;
+        _dbContext = dbContext;
     }
 
     public Dictionary<Item, string> GetAllItems()

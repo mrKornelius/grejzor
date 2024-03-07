@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using grejzor.core;
+using grejzor.Core;
 
 namespace grejzor.Database;
 
