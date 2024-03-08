@@ -1,26 +1,49 @@
 ﻿@page "/items/{id:int}"
 @using grejzor.Database
 @using grejzor.Core
-@inject BorrowService BS
+@inject BorrowService borrowService
 @rendermode InteractiveServer
 
+@if (item is not null)
+{
+    <h2>@item.Name</h2>
+    <h4>Status: ???</h4>
+    <p>@item.Description</p>
+}
 
-<h3>Item @Id</h3>
-<p>@name</p>
-
-<input type="text" @bind="InputText" />
+<input type="text" @bind="name" />
 <button @onclick="UpdateText">Borrow</button>
 
+@if(hasRequested && requests != null)
+{
+    <p>tjena @name</p>
+
+    <ul>
+        <li>listan:</li>
+    @foreach(var r in requests)
+    {
+       <li>@r.Borrower</li> 
+    }
+    </ul>
+}
 
 @code {
     [Parameter] public int Id {get; set;}
 
     Item? item = null;
-    private string InputText { get; set; } = "";
     private string name = string.Empty;
-   
-    private void UpdateText()
+    private bool hasRequested = false;
+    List<BorrowRequest>? requests;
+    private async void UpdateText()
     {
-        name = InputText;
+        hasRequested = await borrowService.CreateBorrowRequest(Id, name);
+        name = "";
+
+        requests = await borrowService.GetAllBorrowRequestsAsync();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        item = await borrowService.GetItemById(Id);
     }
 }

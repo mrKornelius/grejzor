@@ -10,9 +10,9 @@ public class BorrowRequest
     public DateTime? AcceptDate { get; set; }
     public DateTime? ReturnDate { get; set; }
 
-    public BorrowRequest(int id, string borrower)
+    public BorrowRequest(int itemId, string borrower)
     {
-        Id = id;
+        ItemId = itemId;
         Borrower = borrower;
         Status = "Pending";
         RequestDate = DateTime.Now;

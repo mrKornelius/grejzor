@@ -22,10 +22,31 @@ public class BorrowService
         return dict;
     }
 
+    public async Task<Item?> GetItemById(int id)
+    {
+        return await _dbContext.Items.FindAsync(id);
+    }
+
+    public async Task<bool> CreateBorrowRequest(int Id, string name)
+    {
+        BorrowRequest request = new(Id, name);
+        await _dbContext.BorrowRequests.AddAsync(request);
+        await _dbContext.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task<List<BorrowRequest>> GetAllBorrowRequestsAsync()
+    {
+        return await _dbContext.BorrowRequests.ToListAsync();
+    }
+
+
+
+
     // public async Task<ItemSpecifics> GetItemByIdAsync(int id)
     // {
-    //     Item item = _dbContext.Items.Find(id);
-    //     _dbContext.BorrowRequests.Select(x => x.ItemId == id)
+    //     Item? item = await _dbContext.Items.FindAsync(id);
+    //     _dbContext.BorrowRequests.Select(x => x.ItemId == id);
 
     //     return new() { Name = item.Name, Description = item.Description };
     // }
